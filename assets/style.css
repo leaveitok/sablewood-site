@@ -162,6 +162,15 @@ a:hover{color:var(--pine-dark)}
 .concierge-stage .poster{
   flex:1;display:grid;place-content:center;justify-items:center;gap:0;padding:26px
 }
+/* THE POSTER IS THE FALLBACK, NOT THE FEATURE.
+   The concierge mounts INTO #concierge-hero in hero mode. It is hidden only when
+   a <govassist-widget> is actually present, so if the script is blocked - a CSP,
+   a CMS stripping the tag, an outage - the hero still shows the invitation and
+   the AI disclosure instead of an empty green rectangle. Failing visibly beats
+   failing blankly. */
+#concierge-hero:has(govassist-widget) .poster{display:none}
+#concierge-hero:has(govassist-widget){padding:0;background:transparent;border:0;box-shadow:none}
+#concierge-hero govassist-widget{display:block;width:100%;min-height:460px}
 .concierge-stage .poster > *{max-width:400px}
 .concierge-stage .avatar-ring{
   width:96px;height:96px;margin:0 auto 16px;border-radius:50%;

@@ -219,6 +219,26 @@ def chrome(lang: str, depth: int, current: str) -> tuple[str, str]:
 WIDGET_EMBED = (
     '<script src="https://govassist-prod-0001.web.app/widget/govassist-widget.js"\n'
     '        data-tenant="sablewood"\n'
+    '        data-mode="hero"\n'
+    '        data-mount="#concierge-hero"\n'
+    '        data-launch="Ask Vera"\n'
+    '        data-accent="#C8912F"\n'
+    # THE AVATAR IS ON, ON THE HOME PAGES ONLY, WITH DELIBERATELY TIGHT BUDGETS.
+    # 10s idle and 60s hard cap while we are proving the render path - a metered
+    # vendor session must not be able to outlive somebody's attention. Raise both
+    # once the first real session has been watched end to end. Removing
+    # data-avatar entirely is the off switch and costs nothing else.
+    '        data-avatar="on"\n'
+    '        data-avatar-idle="10"\n'
+    '        data-avatar-max="60"></script>'
+)
+
+# INTERIOR PAGES KEEP THE CORNER LAUNCHER. Hero placement belongs on the front
+# door; on a fee schedule the assistant should be available without displacing the
+# content the resident came to read. Same widget, same tenant, one attribute apart.
+WIDGET_EMBED_LAUNCHER = (
+    '<script src="https://govassist-prod-0001.web.app/widget/govassist-widget.js"\n'
+    '        data-tenant="sablewood"\n'
     '        data-launch="Ask Vera"\n'
     '        data-accent="#C8912F"></script>'
 )
@@ -264,7 +284,7 @@ def interior(lang: str, depth: int, current: str, title: str, lede: str,
     return PAGE.format(
         lang=lang, title=esc(title), city=esc(c["name"]), desc=esc(lede),
         css=rel(depth, "assets/style.css"), seal=rel(depth, "assets/seal.svg"),
-        head=head, body=body, foot=foot, widget=WIDGET_EMBED,
+        head=head, body=body, foot=foot, widget=WIDGET_EMBED_LAUNCHER,
     )
 
 
