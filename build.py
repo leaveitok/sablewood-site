@@ -200,6 +200,29 @@ def chrome(lang: str, depth: int, current: str) -> tuple[str, str]:
     return head, foot
 
 
+# --------------------------------------------------------------------------- #
+# THE CONCIERGE EMBED. One script tag, exactly as a city's web team would paste
+# it into their CMS.
+#
+# NO data-api ON PURPOSE. The widget defaults the API origin to the origin the
+# SCRIPT was served from, which is the same host that serves /api/**. Requiring a
+# city to paste a raw Cloud Run hostname puts infrastructure detail in the one
+# field where a typo yields a widget that loads, looks healthy and answers
+# nothing.
+#
+# data-avatar IS DELIBERATELY ABSENT. Without it the widget runs in text mode and
+# spends ZERO vendor minutes. Turning it on requires BOTH this attribute and
+# `avatar.enabled` on the tenant, which is currently False for sablewood because
+# the widget's avatar path has never been executed once. Two switches, so nobody
+# starts billing by editing one line of HTML.
+# --------------------------------------------------------------------------- #
+WIDGET_EMBED = (
+    '<script src="https://govassist-prod-0001.web.app/widget/govassist-widget.js"\n'
+    '        data-tenant="sablewood"\n'
+    '        data-launch="Ask Vera"\n'
+    '        data-accent="#C8912F"></script>'
+)
+
 PAGE = """<!doctype html>
 <html lang="{lang}">
 <head>
@@ -214,6 +237,7 @@ PAGE = """<!doctype html>
 {head}
 {body}
 {foot}
+{widget}
 </body>
 </html>
 """
@@ -240,7 +264,7 @@ def interior(lang: str, depth: int, current: str, title: str, lede: str,
     return PAGE.format(
         lang=lang, title=esc(title), city=esc(c["name"]), desc=esc(lede),
         css=rel(depth, "assets/style.css"), seal=rel(depth, "assets/seal.svg"),
-        head=head, body=body, foot=foot,
+        head=head, body=body, foot=foot, widget=WIDGET_EMBED,
     )
 
 

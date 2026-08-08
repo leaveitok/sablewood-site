@@ -220,7 +220,8 @@ def build(g):
         return PAGE.format(
             lang=lang, title=("Home" if lang == "en" else "Inicio"), city=esc(c["name"]),
             desc=esc(t["lede"]), css=rel(depth, "assets/style.css"),
-            seal=rel(depth, "assets/seal.svg"), head=head, body=body, foot=foot)
+            seal=rel(depth, "assets/seal.svg"), head=head, body=body, foot=foot,
+            widget=g["WIDGET_EMBED"])
 
     write("index.html", home("en", 0))
     write("es/index.html", home("es", 1))
