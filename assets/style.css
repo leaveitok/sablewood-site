@@ -1,0 +1,281 @@
+/* City of Sablewood, Texas - demonstration municipal site
+   ------------------------------------------------------------------
+   ORIGINAL WORK. The LAYOUT CONVENTIONS here (utility bar, seal +
+   wordmark header, full-bleed hero, "How Do I..." action tiles,
+   department grid, notices, agenda module) are standard municipal web
+   practice. No third party's stylesheet, imagery, seal or wordmark is
+   reproduced. Every visual asset in /assets is drawn for this site.
+
+   Type is a system stack on purpose: no webfont request, so the page
+   renders instantly and the widget's sub-second budget is not spent on
+   fonts before a resident can ask anything.
+   ------------------------------------------------------------------ */
+
+:root{
+  --pine:#1F4D3A;
+  --pine-dark:#16382A;
+  --pine-deep:#0F2A20;
+  --brass:#C8912F;
+  --brass-lt:#E3B45E;
+  --ink:#16211D;
+  --body:#33413B;
+  --muted:#5C6B64;
+  --paper:#F7F5F0;
+  --paper-2:#EFEBE2;
+  --line:#DAD4C6;
+  --white:#fff;
+  --serif:Georgia,"Times New Roman",Times,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --wrap:1180px;
+  --radius:4px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--body);
+  font-family:var(--sans);font-size:17px;line-height:1.65;
+}
+img,svg{max-width:100%}
+a{color:#1B5E45;text-underline-offset:3px}
+a:hover{color:var(--pine-dark)}
+:focus-visible{outline:3px solid var(--brass);outline-offset:2px;border-radius:2px}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-9999px;top:0;background:var(--brass);color:#000;
+  padding:12px 18px;font-weight:700;z-index:200}
+.skip:focus{left:12px;top:12px}
+
+/* ---------- the demonstration banner. NOT a footnote, deliberately ---------- */
+.demo-banner{
+  background:#7A1F1F;color:#fff;font-size:14.5px;line-height:1.5;
+  padding:9px 0;border-bottom:3px solid #4E1212;
+}
+.demo-banner .wrap{display:flex;gap:12px;align-items:flex-start}
+.demo-banner strong{color:#FFD9D9}
+.demo-banner .dot{flex:0 0 auto;font-size:18px;line-height:1.2}
+
+/* ---------- utility bar ---------- */
+.utility{background:var(--pine-deep);color:#CFDDD6;font-size:14px}
+.utility .wrap{display:flex;flex-wrap:wrap;gap:18px;align-items:center;
+  justify-content:flex-end;min-height:40px;padding-top:6px;padding-bottom:6px}
+.utility a{color:#CFDDD6;text-decoration:none}
+.utility a:hover{color:var(--brass-lt);text-decoration:underline}
+.utility .lang{margin-inline-start:auto;order:-1;margin-inline-end:auto}
+.utility .lang a{border:1px solid #3C5C4F;padding:3px 10px;border-radius:3px}
+
+/* ---------- masthead ---------- */
+.masthead{background:var(--pine);color:#fff}
+.masthead .wrap{display:flex;align-items:center;gap:18px;padding-top:16px;padding-bottom:16px}
+.seal{width:66px;height:66px;flex:0 0 auto}
+.wordmark{display:flex;flex-direction:column;line-height:1.15;text-decoration:none;color:#fff}
+.wordmark .l1{font-family:var(--serif);font-size:12.5px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--brass-lt)}
+.wordmark .l2{font-family:var(--serif);font-size:29px;font-weight:700;letter-spacing:.01em}
+.wordmark .l3{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:#B8CCC2}
+.masthead .spacer{flex:1}
+.mast-search{display:flex;gap:0}
+.mast-search input{
+  font:inherit;font-size:15px;padding:9px 12px;border:1px solid #3C5C4F;border-right:0;
+  border-radius:var(--radius) 0 0 var(--radius);min-width:210px;background:#fff;color:var(--ink)
+}
+.mast-search button{
+  font:inherit;font-size:15px;font-weight:600;padding:9px 16px;cursor:pointer;
+  background:var(--brass);color:#231A06;border:1px solid var(--brass);
+  border-radius:0 var(--radius) var(--radius) 0
+}
+
+/* ---------- primary nav ---------- */
+.mainnav{background:var(--pine-dark);border-top:1px solid #2C6249}
+.mainnav ul{display:flex;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.mainnav a{
+  display:block;color:#EAF2EE;text-decoration:none;font-weight:600;font-size:15.5px;
+  padding:14px 18px;border-bottom:4px solid transparent
+}
+.mainnav a:hover,.mainnav a[aria-current="page"]{
+  background:var(--pine-deep);color:#fff;border-bottom-color:var(--brass)
+}
+
+/* ---------- HERO: this block is the concierge's home ----------
+   Sized and placed the way a municipal digital assistant is placed in
+   production practice: the FIRST content section, full width, directly
+   under the header - not a floating bubble in the corner. The widget
+   mounts into #concierge-hero. Until hero mode ships in the widget, the
+   poster below IS the hero and the launcher opens the existing panel. */
+.hero{
+  position:relative;min-height:600px;display:flex;align-items:center;
+  background:
+    radial-gradient(1100px 620px at 72% 34%, rgba(200,145,47,.20), transparent 62%),
+    linear-gradient(148deg,var(--pine-deep) 0%,var(--pine) 52%,#2A6B50 100%);
+  color:#fff;overflow:hidden;border-bottom:5px solid var(--brass)
+}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.30;
+  background-image:
+    linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:64px 64px
+}
+.hero .wrap{position:relative;z-index:2;width:100%;
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+  gap:44px;align-items:center;padding-top:56px;padding-bottom:56px}
+.hero-copy .eyebrow{
+  display:inline-block;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:#0F2A20;background:var(--brass-lt);padding:5px 12px;border-radius:2px;font-weight:700
+}
+.hero-copy h1{
+  font-family:var(--serif);font-size:clamp(2rem,4.1vw,3.15rem);line-height:1.12;
+  margin:16px 0 14px;color:#fff;font-weight:700
+}
+.hero-copy p{font-size:18.5px;line-height:1.6;color:#DCEAE3;margin:0 0 22px;max-width:52ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-block;font:inherit;font-weight:700;font-size:16px;cursor:pointer;
+  padding:13px 22px;border-radius:var(--radius);text-decoration:none;border:2px solid transparent
+}
+.btn-primary{background:var(--brass);color:#231A06;border-color:var(--brass)}
+.btn-primary:hover{background:var(--brass-lt);color:#231A06}
+.btn-ghost{background:transparent;color:#fff;border-color:#7FA695}
+.btn-ghost:hover{background:rgba(255,255,255,.10);color:#fff}
+
+/* the concierge stage: 16:9-ish, matches production digital-human sizing */
+/* THE DISCLOSURE IS IN NORMAL FLOW, NOT ABSOLUTELY POSITIONED.
+   The first version pinned it to the bottom and padded the poster away from it.
+   That works at exactly one size and silently fails at every other: the strip
+   covered the start control the moment the stage got short. A TRAIGA disclosure
+   that can obscure the control it is disclosing about is worse than no layout at
+   all, so the stage is a column - poster takes the remaining space, disclosure
+   sits under it, and no width or height can make them collide. */
+.concierge-stage{
+  /* min-height, NOT aspect-ratio. A fixed ratio pins the height, and the
+     disclosure - the last thing in the column - is what gets clipped when the
+     text is long or the container is narrow. Spanish runs ~20% longer than
+     English here, so the ratio version truncated the ES disclosure and not the
+     EN one: a bug that only appears in the language nobody proofreads. */
+  position:relative;min-height:460px;border-radius:6px;
+  background:linear-gradient(160deg,#0C2419 0%,#123024 46%,#1C4536 100%);
+  border:1px solid rgba(255,255,255,.18);box-shadow:0 18px 46px rgba(0,0,0,.34);
+  display:flex;flex-direction:column;text-align:center;overflow:hidden
+}
+.concierge-stage .poster{
+  flex:1;display:grid;place-content:center;justify-items:center;gap:0;padding:26px
+}
+.concierge-stage .poster > *{max-width:400px}
+.concierge-stage .avatar-ring{
+  width:96px;height:96px;margin:0 auto 16px;border-radius:50%;
+  background:radial-gradient(circle at 40% 32%,#EBD5A6,#C8912F 62%,#8C6317);
+  display:grid;place-items:center;color:#231A06;font-family:var(--serif);
+  font-size:34px;font-weight:700;box-shadow:0 0 0 6px rgba(200,145,47,.18)
+}
+.concierge-stage h2{font-family:var(--serif);font-size:24px;margin:0 0 8px;color:#fff}
+.concierge-stage p{font-size:15.5px;color:#CFE0D8;margin:0 0 18px}
+.ai-disclosure{
+  flex:0 0 auto;margin:0;background:rgba(9,26,20,.92);
+  color:#CFE0D8;font-size:12.5px;line-height:1.45;padding:10px 14px;text-align:left;
+  border-top:1px solid rgba(255,255,255,.14)
+}
+.ai-disclosure strong{color:var(--brass-lt)}
+
+/* ---------- "How do I..." tiles ---------- */
+.section{padding:52px 0}
+.section-head{margin:0 0 26px}
+.section-head h2{
+  font-family:var(--serif);font-size:29px;color:var(--pine);margin:0 0 6px;font-weight:700
+}
+.section-head p{margin:0;color:var(--muted);font-size:16px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.tile{
+  background:var(--white);border:1px solid var(--line);border-top:4px solid var(--brass);
+  border-radius:var(--radius);padding:20px;text-decoration:none;color:var(--ink);
+  display:block;transition:transform .12s ease,box-shadow .12s ease
+}
+.tile:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(22,33,29,.12);color:var(--ink)}
+.tile .ico{font-size:26px;line-height:1;display:block;margin-bottom:10px}
+.tile strong{display:block;font-size:17px;font-family:var(--serif);margin-bottom:4px;color:var(--pine)}
+.tile span{font-size:14.5px;color:var(--muted);display:block}
+
+/* ---------- departments / cards ---------- */
+.band{background:var(--paper-2);border-block:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.card h3{font-family:var(--serif);font-size:20px;color:var(--pine);margin:0 0 8px}
+.card p{margin:0 0 12px;font-size:15.5px}
+.card .meta{font-size:14.5px;color:var(--muted);margin:0}
+
+/* ---------- notices / agendas ---------- */
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:32px}
+.notice-list{list-style:none;margin:0;padding:0}
+.notice-list li{padding:14px 0;border-bottom:1px solid var(--line)}
+.notice-list li:last-child{border-bottom:0}
+.notice-list .date{
+  display:block;font-size:13px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--brass);font-weight:700;margin-bottom:3px
+}
+.notice-list a{font-weight:600;text-decoration:none;font-size:16.5px}
+.notice-list a:hover{text-decoration:underline}
+
+/* ---------- interior pages ---------- */
+.crumbs{background:var(--paper-2);border-bottom:1px solid var(--line);font-size:14.5px}
+.crumbs .wrap{padding-top:12px;padding-bottom:12px}
+.crumbs a{color:var(--muted)}
+.pagehead{background:var(--pine);color:#fff;padding:34px 0}
+.pagehead h1{font-family:var(--serif);font-size:clamp(1.7rem,3.2vw,2.4rem);margin:0;color:#fff}
+.pagehead p{margin:8px 0 0;color:#C9DCD2;font-size:17px;max-width:70ch}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:40px;padding:40px 0}
+.prose h2{font-family:var(--serif);font-size:25px;color:var(--pine);margin:34px 0 10px}
+.prose h2:first-child{margin-top:0}
+.prose h3{font-family:var(--serif);font-size:19.5px;color:var(--pine-dark);margin:24px 0 8px}
+.prose p,.prose li{font-size:17px}
+.prose ul,.prose ol{padding-left:22px}
+.prose li{margin-bottom:7px}
+.prose table{border-collapse:collapse;width:100%;margin:16px 0;font-size:16px}
+.prose th,.prose td{border:1px solid var(--line);padding:10px 12px;text-align:left}
+.prose th{background:var(--paper-2);font-family:var(--serif);color:var(--pine)}
+.prose caption{caption-side:top;text-align:left;font-size:14.5px;color:var(--muted);padding-bottom:8px}
+.callout{
+  background:#FFF8E8;border:1px solid #E8D49B;border-left:5px solid var(--brass);
+  padding:16px 18px;border-radius:var(--radius);margin:22px 0
+}
+.callout p{margin:0;font-size:16px}
+.sidebar .box{
+  background:var(--white);border:1px solid var(--line);border-top:4px solid var(--pine);
+  border-radius:var(--radius);padding:18px;margin-bottom:20px
+}
+.sidebar h2{font-family:var(--serif);font-size:18px;color:var(--pine);margin:0 0 10px}
+.sidebar ul{list-style:none;margin:0;padding:0}
+.sidebar li{padding:7px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.sidebar li:last-child{border-bottom:0}
+.sidebar .contact p{margin:0 0 6px;font-size:15.5px}
+
+/* ---------- footer ---------- */
+.footer{background:var(--pine-deep);color:#B8CCC2;padding:44px 0 0;font-size:15.5px}
+.footer a{color:#DCE9E3}
+.footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px}
+.footer h2{font-family:var(--serif);font-size:17px;color:#fff;margin:0 0 10px}
+.footer ul{list-style:none;margin:0;padding:0}
+.footer li{padding:4px 0}
+.footer .legal{
+  margin-top:34px;border-top:1px solid #24503E;padding:18px 0 26px;font-size:14px;color:#8FA79C
+}
+.footer .legal p{margin:0 0 6px}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:30px}
+  .hero{min-height:0}
+  .layout{grid-template-columns:1fr}
+  .masthead .wrap{flex-wrap:wrap}
+  .mast-search{width:100%}
+  .mast-search input{flex:1;min-width:0}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .tile:hover{transform:none}
+}
+
+@media print{
+  .demo-banner{background:none;color:#000;border-bottom:2px solid #000}
+  .utility,.mainnav,.hero,.mast-search,.footer .cols{display:none}
+}

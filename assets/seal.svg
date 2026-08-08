@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Seal of the City of Sablewood, Texas">
+  <title>Seal of the City of Sablewood, Texas</title>
+  <defs>
+    <path id="sw-arc-top" d="M 30 100 A 70 70 0 0 1 170 100"/>
+    <path id="sw-arc-bot" d="M 34 100 A 66 66 0 0 0 166 100"/>
+  </defs>
+
+  <!-- outer ring -->
+  <circle cx="100" cy="100" r="96" fill="#1F4D3A"/>
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#C8912F" stroke-width="1.5"/>
+  <circle cx="100" cy="100" r="70" fill="#F7F5F0"/>
+  <circle cx="100" cy="100" r="70" fill="none" stroke="#C8912F" stroke-width="2"/>
+
+  <!-- ring lettering -->
+  <text fill="#F7F5F0" font-family="Georgia, 'Times New Roman', serif" font-size="13.5"
+        letter-spacing="2.4" font-weight="bold">
+    <textPath href="#sw-arc-top" startOffset="50%" text-anchor="middle">CITY OF SABLEWOOD</textPath>
+  </text>
+  <text fill="#F7F5F0" font-family="Georgia, 'Times New Roman', serif" font-size="11"
+        letter-spacing="3.4">
+    <textPath href="#sw-arc-bot" startOffset="50%" text-anchor="middle">TEXAS &#183; INCORPORATED 1887</textPath>
+  </text>
+
+  <!-- lone star above the tree -->
+  <path d="M100 40 L104.2 52.6 L117.4 52.6 L106.6 60.4 L110.8 73 L100 65.2 L89.2 73 L93.4 60.4 L82.6 52.6 L95.8 52.6 Z"
+        fill="#C8912F"/>
+
+  <!-- oak canopy -->
+  <path d="M100 66 C81 66 68 78 68 92 C61 95 58 101 60 108 C62 116 71 120 80 118
+           C85 125 94 128 100 128 C106 128 115 125 120 118 C129 120 138 116 140 108
+           C142 101 139 95 132 92 C132 78 119 66 100 66 Z" fill="#1F4D3A"/>
+  <!-- trunk and roots -->
+  <path d="M96 124 h8 v22 h9 v5 H87 v-5 h9 Z" fill="#5A4222"/>
+  <path d="M100 128 v18 M100 136 l-9 -7 M100 140 l9 -8" stroke="#0F3326" stroke-width="2.2"
+        fill="none" stroke-linecap="round"/>
+
+  <!-- ground line -->
+  <path d="M60 152 h80" stroke="#C8912F" stroke-width="2" stroke-linecap="round"/>
+</svg>

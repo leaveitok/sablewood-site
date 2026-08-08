@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home | City of Sablewood</title>
+<meta name="description" content="Sablewood's digital assistant answers from the city's own published pages, shows you the page the answer came from, and refers you to the right department when the answer has not been published.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/seal.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<div class="demo-banner" role="note">
+  <div class="wrap"><span class="dot" aria-hidden="true">&#9888;</span>
+    <p style="margin:0"><strong>This is a fictional city.</strong> Sablewood, Texas does not exist. This site is a demonstration built by OpticVector AI to show a grounded municipal concierge working on a realistic city website. Nothing here is an official government record and no service on it is real.</p></div>
+</div>
+<div class="utility">
+  <div class="wrap">
+    <span class="lang"><a href="es/index.html" hreflang="es" lang="es"
+      >Español</a></span>
+    <a href="government/departments.html">Contact Us</a>
+    <a href="accessibility.html">Accessibility</a>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <img class="seal" src="assets/seal.svg" alt="" width="66" height="66">
+    <a class="wordmark" href="index.html">
+      <span class="l1">Official Website</span>
+      <span class="l2">City of Sablewood</span>
+      <span class="l3">Sablewood, Texas</span>
+    </a>
+    <span class="spacer"></span>
+    <form class="mast-search" role="search" onsubmit="return false">
+      <label class="sr-only" for="q">Search sablewood.gov</label>
+      <input id="q" type="search" placeholder="Search sablewood.gov">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+</header>
+<nav class="mainnav" aria-label="Primary">
+  <div class="wrap"><ul><li><a href="government/departments.html">Government</a></li><li><a href="services/utility-billing.html">Services</a></li><li><a href="services/building-permits.html">Permits</a></li><li><a href="services/parks-recreation.html">Parks</a></li><li><a href="government/council-agendas.html">Agendas</a></li><li><a href="government/departments.html">Contact</a></li></ul></div>
+</nav>
+
+<main id="main">
+
+  <!-- ============================================================
+       THE HERO IS THE CONCIERGE.
+       Placed as the FIRST content section, full width, directly under
+       the header - the placement production municipal digital assistants
+       use, and the reason one reads as the city's front door instead of
+       a support widget in the corner.
+
+       The stage below is the POSTER state. No avatar session is minted
+       and no vendor minute is billed until a resident chooses to start
+       one. A city pays per avatar minute; streaming to someone who
+       scrolled past is money spent on nobody.
+       ============================================================ -->
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Ask the city anything</span>
+        <h1 id="hero-h">Find a city service in one question.</h1>
+        <p>Sablewood's digital assistant answers from the city's own published pages, shows you the page the answer came from, and refers you to the right department when the answer has not been published.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" type="button"
+                  data-govassist-open>Start a conversation</button>
+          <a class="btn btn-ghost"
+             href="services/utility-billing.html">Browse services</a>
+        </div>
+      </div>
+
+      <div class="concierge-stage" id="concierge-hero">
+        <div class="poster">
+          <div class="avatar-ring" aria-hidden="true">V</div>
+          <h2>Meet Vera</h2>
+          <p>Your Sablewood digital assistant. Ask in English or Spanish.</p>
+          <button class="btn btn-primary" type="button" data-govassist-open>Start a conversation</button>
+        </div>
+        <p class="ai-disclosure"><strong>You are interacting with an AI assistant.</strong> It answers only from information published on this website, shows you the page each answer came from, and refers you to a department when the answer is not published.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="howdo-h">
+    <div class="section-head">
+      <h2 id="howdo-h">How do I…</h2>
+      <p>The requests residents make most.</p>
+    </div>
+    <div class="tiles"><a class="tile" href="services/utility-billing.html"><span class="ico" aria-hidden="true">&#128167;</span><strong>Pay my water bill</strong><span>Online, by phone, or in person</span></a><a class="tile" href="services/trash-recycling.html"><span class="ico" aria-hidden="true">&#9851;</span><strong>Check my trash day</strong><span>Collection and recycling schedule</span></a><a class="tile" href="services/building-permits.html"><span class="ico" aria-hidden="true">&#128736;</span><strong>Pull a building permit</strong><span>Fees, forms and inspections</span></a><a class="tile" href="services/parks-recreation.html"><span class="ico" aria-hidden="true">&#127795;</span><strong>Reserve a park pavilion</strong><span>Facilities and recreation</span></a><a class="tile" href="services/code-compliance.html"><span class="ico" aria-hidden="true">&#128221;</span><strong>Report a code violation</strong><span>Tall grass, junk, signage</span></a><a class="tile" href="government/council-agendas.html"><span class="ico" aria-hidden="true">&#128197;</span><strong>Read a council agenda</strong><span>Meetings, minutes and packets</span></a></div>
+  </section>
+
+  <section class="band">
+    <div class="section wrap split">
+      <div>
+        <div class="section-head"><h2>City notices</h2></div>
+        <ul class="notice-list"><li><span class="date">March 2, 2026</span><a href="services/trash-recycling.html">Spring brush collection begins March 16</a></li><li><span class="date">February 24, 2026</span><a href="services/utility-billing.html">Utility billing office closed for system upgrade</a></li><li><span class="date">February 18, 2026</span><a href="services/building-permits.html">Permit fee schedule updated for fiscal year 2026</a></li></ul>
+      </div>
+      <div>
+        <div class="section-head"><h2>Upcoming meetings</h2></div>
+        <ul class="notice-list"><li><span class="date">March 10, 2026</span><a href="government/council-agendas.html">City Council Regular Meeting, 6:00 p.m.</a></li><li><span class="date">March 17, 2026</span><a href="government/council-agendas.html">Planning &amp; Zoning Commission, 6:30 p.m.</a></li><li><span class="date">March 24, 2026</span><a href="government/council-agendas.html">Parks Advisory Board, 5:30 p.m.</a></li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="depts-h">
+    <div class="section-head">
+      <h2 id="depts-h">City departments</h2>
+      <p>Who to call, and when they answer.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><h3>Utility Billing</h3>
+        <p>Water, sewer and solid waste accounts, payment arrangements and final bills.</p>
+        <p class="meta">(940) 555-0110</p></div>
+      <div class="card"><h3>Public Works</h3>
+        <p>Streets, drainage, water distribution and residential collection.</p>
+        <p class="meta">(940) 555-0120</p></div>
+      <div class="card"><h3>Development Services</h3>
+        <p>Building permits, plan review, inspections and zoning.</p>
+        <p class="meta">(940) 555-0130</p></div>
+    </div>
+  </section>
+
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h2>City of Sablewood</h2>
+        <p>100 Civic Plaza, Sablewood, TX 76077<br>(940) 555-0100<br>Monday–Friday, 8:00 a.m. – 5:00 p.m.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul><li><a href="government/departments.html">Government</a></li><li><a href="services/utility-billing.html">Services</a></li><li><a href="services/building-permits.html">Permits</a></li><li><a href="services/parks-recreation.html">Parks</a></li></ul>
+      </div>
+      <div>
+        <h2>Government</h2>
+        <ul><li><a href="government/council-agendas.html">Agendas</a></li><li><a href="government/departments.html">Contact</a></li></ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>Sablewood is a fictional city created for demonstration purposes by OpticVector AI. Telephone numbers use the 555-01xx range reserved for fictional use. Any resemblance to a real municipality is unintended.</p>
+      <p>&copy; 2026 OpticVector AI &#183; Demonstration site</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

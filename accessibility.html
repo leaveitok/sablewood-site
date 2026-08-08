@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Accessibility | City of Sablewood</title>
+<meta name="description" content="How this site is built to be usable, and how to tell us when it is not.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/seal.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<div class="demo-banner" role="note">
+  <div class="wrap"><span class="dot" aria-hidden="true">&#9888;</span>
+    <p style="margin:0"><strong>This is a fictional city.</strong> Sablewood, Texas does not exist. This site is a demonstration built by OpticVector AI to show a grounded municipal concierge working on a realistic city website. Nothing here is an official government record and no service on it is real.</p></div>
+</div>
+<div class="utility">
+  <div class="wrap">
+    <span class="lang"><a href="es/index.html" hreflang="es" lang="es"
+      >Español</a></span>
+    <a href="government/departments.html">Contact Us</a>
+    <a href="accessibility.html">Accessibility</a>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <img class="seal" src="assets/seal.svg" alt="" width="66" height="66">
+    <a class="wordmark" href="index.html">
+      <span class="l1">Official Website</span>
+      <span class="l2">City of Sablewood</span>
+      <span class="l3">Sablewood, Texas</span>
+    </a>
+    <span class="spacer"></span>
+    <form class="mast-search" role="search" onsubmit="return false">
+      <label class="sr-only" for="q">Search sablewood.gov</label>
+      <input id="q" type="search" placeholder="Search sablewood.gov">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+</header>
+<nav class="mainnav" aria-label="Primary">
+  <div class="wrap"><ul><li><a href="government/departments.html">Government</a></li><li><a href="services/utility-billing.html">Services</a></li><li><a href="services/building-permits.html">Permits</a></li><li><a href="services/parks-recreation.html">Parks</a></li><li><a href="government/council-agendas.html">Agendas</a></li><li><a href="government/departments.html">Contact</a></li></ul></div>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="wrap"><a href="index.html">Home</a> &rsaquo; <span>Accessibility</span></div>
+</nav>
+<div class="pagehead">
+  <div class="wrap"><h1>Accessibility</h1><p>How this site is built to be usable, and how to tell us when it is not.</p></div>
+</div>
+<main id="main" class="wrap layout">
+  <article class="prose">
+<h2>Our commitment</h2>
+<p>This site is built to meet <strong>WCAG 2.2 Level AA</strong>. In practice that means every
+control can be reached and operated with a keyboard alone, headings describe the structure of
+each page rather than its appearance, colour is never the only way information is conveyed,
+tables carry captions and header cells, and animation is suppressed for anyone whose system
+requests reduced motion.</p>
+
+<h2>The digital assistant</h2>
+<p>The assistant on the home page is usable as plain text chat with a keyboard and a screen
+reader. The avatar is optional and never required to get an answer. Answers are announced in a
+live region so a screen-reader user hears a reply arrive without hunting for it.</p>
+<p>Under Texas House Bill 149, the Texas Responsible Artificial Intelligence Governance Act,
+you are told plainly and before you interact that you are dealing with an AI system. That
+disclosure is on the assistant itself, not buried in a policy page.</p>
+
+<h2>Reporting a barrier</h2>
+<p>If any part of this site or a city service is not accessible to you, contact City Hall at
+(940) 555-0100 or info@sablewood.example. Tell us the page and what happened. The city responds
+to accessibility reports within five business days, and a barrier that prevents you completing a
+city transaction is treated as a service outage rather than a website bug.</p>
+<p>You may also request any city information in an alternate format at no charge.</p>
+</article>
+  <aside class="sidebar" aria-label="Page details"><div class="box contact">
+  <h2>Department contact</h2>
+  <p><strong>City Hall</strong></p>
+  <p>Phone: (940) 555-0100</p>
+  <p>Email: <a href="mailto:info@sablewood.example">info@sablewood.example</a></p>
+  <p>Hours: Monday–Friday, 8:00 a.m. – 5:00 p.m.</p>
+</div></aside>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h2>City of Sablewood</h2>
+        <p>100 Civic Plaza, Sablewood, TX 76077<br>(940) 555-0100<br>Monday–Friday, 8:00 a.m. – 5:00 p.m.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul><li><a href="government/departments.html">Government</a></li><li><a href="services/utility-billing.html">Services</a></li><li><a href="services/building-permits.html">Permits</a></li><li><a href="services/parks-recreation.html">Parks</a></li></ul>
+      </div>
+      <div>
+        <h2>Government</h2>
+        <ul><li><a href="government/council-agendas.html">Agendas</a></li><li><a href="government/departments.html">Contact</a></li></ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>Sablewood is a fictional city created for demonstration purposes by OpticVector AI. Telephone numbers use the 555-01xx range reserved for fictional use. Any resemblance to a real municipality is unintended.</p>
+      <p>&copy; 2026 OpticVector AI &#183; Demonstration site</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
